@@ -1,0 +1,527 @@
+
+/* Minimalist theme for MNANP2027 */
+
+:root {
+    color-scheme: light;
+    --background: #ffffff;
+    --surface: #f6f7f8;
+    --text: #252a30;
+    --muted: #68717b;
+    --accent: #294b63;
+    --border: #e3e7ea;
+    --link: #245a78;
+    --link-hover: #153d56;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: min(100% - 40px, 800px);
+    margin: 36px auto 24px;
+    background: var(--background);
+    color: var(--text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: left;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+    text-underline-offset: 3px;
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+a.current {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Headings and text */
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--text);
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.25;
+    text-shadow: none;
+}
+
+h2 {
+    margin: 48px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    font-size: 1.45rem;
+    letter-spacing: -0.02em;
+}
+
+h3 {
+    margin: 32px 0 12px;
+    font-size: 1.2rem;
+}
+
+p {
+    width: 100%;
+    margin: 0 0 18px;
+    padding: 0;
+    text-align: left;
+}
+
+ul {
+    width: 100%;
+    margin: 0 0 20px;
+    padding-left: 1.35rem;
+    list-style: disc;
+}
+
+ul li {
+    margin: 4px 0;
+    padding: 0;
+    text-align: left;
+}
+
+li a,
+p a {
+    text-decoration: underline;
+    text-decoration-color: #b9cbd5;
+}
+
+b,
+strong {
+    font-weight: 650;
+}
+
+i,
+em {
+    font-style: italic;
+}
+
+sup,
+sub {
+    font-size: 0.8em;
+    line-height: 0;
+}
+
+sup {
+    vertical-align: super;
+}
+
+sub {
+    vertical-align: sub;
+}
+
+/* Conference header */
+
+.banner {
+    position: relative;
+    overflow: hidden;
+    min-height: 260px;
+    margin: 0 auto 24px;
+    background: #f6f7f8;
+}
+
+/* Light overlay to preserve the garden photograph 
+The last number in each rgba() controls transparency (alpha):
+- 0.22 = 22% opacity.
+- 0.10 = 10% opacity.
+- 0.03 = 3% opacity.
+- 0 = completely transparent.
+- 1 = completely opaque.
+*/
+
+.banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        100deg,
+        rgba(10, 25, 22, 0.15) 0%,
+        rgba(10, 25, 22, 0.08) 55%,
+        rgba(10, 25, 22, 0.03) 100%
+    );
+}
+
+.banner > img {
+    display: block;
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+/* Conference title panel */
+
+.top-left {
+    position: absolute;
+    z-index: 2;
+    top: 18px;
+    left: 18px;
+    width: min(76%, 640px);
+    height: auto;
+    padding: 18px 22px;
+    background: rgba(20, 35, 30, 0.62);
+    border-left: 4px solid #d9bd72;
+    color: #ffffff;
+}
+
+.brand-line {
+    margin-bottom: 5px;
+    color: #ffffff;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1.1;
+}
+
+.title1 {
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.title2 {
+    margin-left: 0.18em;
+    color: #f0d995;
+    text-shadow: none;
+}
+
+.conference-name {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 550;
+    line-height: 1.45;
+}
+
+.co-host {
+    margin-top: 4px;
+    color: #e5ebe7;
+    font-size: 1.2rem;
+}
+
+/* Date and venue panel */
+
+.bottom-right {
+    position: absolute;
+    z-index: 2;
+    right: 18px;
+    bottom: 18px;
+    width: auto;
+    height: auto;
+    padding: 10px 15px;
+    background: rgba(20, 35, 30, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    font-size: 0.86rem;
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: right;
+    text-shadow: none;
+}
+
+/* Navigation */
+
+table {
+    width: 100%;
+    margin: 16px auto 24px;
+    border-collapse: collapse;
+}
+
+table.navigation {
+    width: 100%;
+    margin: 0 auto 34px;
+    border-bottom: 1px solid var(--border);
+}
+
+td,
+th {
+    text-align: left;
+}
+
+td.navigation {
+    width: 25%;
+    padding: 10px 8px 14px;
+    font-size: 0.98rem;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* Photos and venue images */
+
+.photo-gallery {
+    margin-top: 18px;
+}
+
+img.previous-meeting {
+    display: block;
+    width: min(100%, 620px);
+    height: auto;
+    margin: 0;
+}
+
+.venue-images {
+    padding-left: 0;
+    list-style: none;
+}
+
+.venue-images > li > img {
+    display: block;
+    width: min(100%, 680px);
+    height: auto;
+    margin: 12px 0 18px;
+}
+
+.venue-details {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 12px 0 18px;
+}
+
+.venue-details img:first-child {
+    width: min(50%, 420px);
+    height: auto;
+}
+
+.venue-details img:last-child {
+    width: min(24%, 190px);
+    height: auto;
+}
+
+img.center {
+    display: block;
+    width: min(67%, 620px);
+    height: auto;
+    margin: 24px auto;
+}
+
+/* Sponsor logos */
+
+table.sponsors {
+    width: min(100%, 760px);
+    margin: 18px 0 24px;
+}
+
+td.sponsor {
+    width: 33.333%;
+    padding: 12px 22px 12px 0;
+    text-align: left;
+    vertical-align: middle;
+}
+
+td.sponsor img {
+    display: block;
+    width: 100%;
+    max-width: 190px;
+    max-height: 84px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* Program and schedule tables */
+
+td.room {
+    width: 90%;
+    height: 32px;
+    padding: 8px 12px 8px 4px;
+    color: var(--accent);
+    font-size: 1.15rem;
+    vertical-align: bottom;
+}
+
+td.date {
+    width: 130px;
+    padding: 8px 16px 0 0;
+    text-align: right;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+td.title,
+td.title-special {
+    width: 90%;
+    height: 32px;
+    padding: 8px 12px 8px 4px;
+    color: var(--text);
+    font-size: 1.08rem;
+    font-family: inherit;
+    text-shadow: none;
+    vertical-align: top;
+}
+
+td.title-special {
+    color: var(--accent);
+}
+
+td.speaker,
+td.abstract {
+    padding: 6px 12px 10px 4px;
+    font-size: 0.98rem;
+}
+
+td.speaker {
+    font-style: italic;
+}
+
+td.abstract img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 8px auto;
+}
+
+table.plenary {
+    padding-top: 8px;
+    background: var(--surface);
+}
+
+table.schedule {
+    width: 90%;
+    border-collapse: collapse;
+}
+
+td.schedule,
+th.schedule {
+    padding: 10px;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+th.schedule {
+    background: var(--surface);
+    font-weight: 600;
+}
+
+/* Registration and directions */
+
+iframe.registration,
+iframe.directions {
+    display: block;
+    width: 100%;
+    margin: 20px auto 32px;
+    border: 0;
+}
+
+iframe.registration {
+    height: 1400px;
+}
+
+iframe.directions {
+    height: 400px;
+}
+
+/* Footer */
+
+footer {
+    margin: 72px auto 24px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.84rem;
+    text-align: center;
+}
+
+/* Mobile layout */
+
+@media (max-width: 700px) {
+    body {
+        width: min(100% - 28px, 960px);
+        margin-top: 18px;
+        font-size: 15px;
+    }
+
+    .banner,
+    .banner > img {
+        min-height: 300px;
+        height: 300px;
+    }
+
+    .banner > img {
+        object-position: center;
+    }
+
+    .top-left {
+        top: 12px;
+        left: 12px;
+        width: calc(100% - 24px);
+        padding: 14px 16px;
+    }
+
+    .brand-line {
+        font-size: 1.8rem;
+    }
+
+    .conference-name {
+        font-size: 0.9rem;
+    }
+
+    .co-host {
+        font-size: 0.82rem;
+    }
+
+    .bottom-right {
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        font-size: 0.8rem;
+        text-align: left;
+    }
+
+    h2 {
+        margin-top: 38px;
+        font-size: 1.3rem;
+    }
+
+    td.navigation {
+        padding: 9px 3px 12px;
+        font-size: 0.84rem;
+        white-space: normal;
+    }
+
+    .venue-details {
+        gap: 10px;
+    }
+
+    .venue-details img:first-child {
+        width: 62%;
+    }
+
+    .venue-details img:last-child {
+        width: 32%;
+    }
+
+    td.sponsor {
+        padding-right: 10px;
+    }
+
+    td.date {
+        width: 95px;
+        padding-right: 8px;
+        font-size: 0.85rem;
+    }
+
+    td.room,
+    td.title,
+    td.title-special,
+    td.speaker,
+    td.abstract {
+        font-size: 0.9rem;
+    }
+}
